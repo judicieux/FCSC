@@ -21,10 +21,10 @@ Connaissant le format des flags FCSC. On a déjà notre known plaintext, notamme
 ```
 d91b7023e46b4602f93a1202a7601304a7681103fd611502fa684102ad6d1506ab6a1059fc6a1459a8691051af3b4706fb691b54ad681b53f93a4651a93a1001ad3c4006a825
 ```
-Je présume que c'est le flag qui a été xoré + encodé en hexadécimal.<br/>
+Je présume que c'est le flag xoré + encodé en hexadécimal.<br/>
 ## Solution
 Je commence par un xor basique en me munissant des éléments que j'ai.<br/>
-Tout d'abord je fous un fromhex au niveau du flag codé.<br/>
+Tout d'abord je fous un Fromhex au niveau du flag encodé.<br/>
 Je le xor avec la key FCSC encodé en UTF8.<br/>
 Ensuite je pose un To hex et je chope les 4 premiers octets étant donné que la known plaintext fait 4 caractères de long.<br/>
 Je remplace la key "FCSC" par les 4 octets et je l'encode en hexadécimal.<br/>
