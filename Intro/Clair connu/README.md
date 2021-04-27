@@ -13,7 +13,7 @@ key = os.urandom(4) * 20
 c = strxor(FLAG, key[:len(FLAG)])
 print(c.hex())
 ```
-Le fichier flag.txt a été importé avec comme file IO rb (read binary).<br/>
+Le fichier flag.txt a été importé [File IO: rb (read binary)].<br/>
 On sait que la key fait 4 caractères * 20. La fonction urandom(4) retourne 4 bytes (octets) randoms en format Little-endian.<br/>
 En réalité, la key ne fait pas 80 caractères. Le blocksize de la key équivaut à 4 caractères vu que la séquence est répétée 20x d'affilé.<br/>
 Connaissant le format des flags FCSC. On a déjà notre known plaintext, notamment "FCSC".<br/>
