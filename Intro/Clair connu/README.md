@@ -25,13 +25,13 @@ d91b7023e46b4602f93a1202a7601304a7681103fd611502fa684102ad6d1506ab6a1059fc6a1459
 Je présume que c'est le flag xoré + encodé en hexadécimal.<br/>
 ## Solution Cyberchef
 Je commence par un xor basique en me munissant des éléments que j'ai.<br/>
-Tout d'abord je fous un Fromhex au niveau du flag encodé.<br/>
-<img src="https://media.discordapp.net/attachments/768928242467340328/836528652434800700/H1x75DD9A3kAAAAAElFTkSuQmCC.png?width=1308&height=613"/><br/>
+Tout d'abord je fous un Fromhex au niveau du flag encodé.<br/><br/>
+<img src="https://media.discordapp.net/attachments/768928242467340328/836528652434800700/H1x75DD9A3kAAAAAElFTkSuQmCC.png?width=1308&height=613"/><br/><br/>
 Je le xor avec la key FCSC encodé en UTF8.<br/>
-Ensuite je pose un To hex et je chope les 4 premiers octets étant donné que la known plaintext fait 4 caractères de long.<br/>
-<img src="https://media.discordapp.net/attachments/768928242467340328/836529336290246656/unknown.png?width=1297&height=613"/><br/>
-Je remplace la key "FCSC" par les 4 octets et je l'encode en hexadécimal.<br/>
-<img src="https://media.discordapp.net/attachments/768928242467340328/836529573519818782/unknown.png?width=1344&height=613"/></br>
+Ensuite je pose un To hex et je chope les 4 premiers octets étant donné que la known plaintext fait 4 caractères de long.<br/><br/>
+<img src="https://media.discordapp.net/attachments/768928242467340328/836529336290246656/unknown.png?width=1297&height=613"/><br/><br/>
+Je remplace la key "FCSC" par les 4 octets et je l'encode en hexadécimal.<br/><br/>
+<img src="https://media.discordapp.net/attachments/768928242467340328/836529573519818782/unknown.png?width=1344&height=613"/></br><br/>
 On voit qu'on a flag ce challenge.
 ## Avis
 Quand je faisais le chall je pensais que la key faisait 80 caractères. D'où le urandom(4)\*20.<br/>
