@@ -35,6 +35,6 @@ Je remplace la key "FCSC" par les 4 octets et je l'encode en hexadécimal.<br/><
 On voit qu'on a flag ce challenge.
 ## Avis
 Quand je faisais le chall je pensais que la key faisait 80 caractères. D'où le urandom(4)\*20.<br/>
-Mais au final non car il n'y a aucun cycle, et ça se devine facilement.<br/>
+En effet, la key fait 80 caractères, mais ce sont juste 4 octets répétés 20x.<br/>
 Le block size de la key est de 4 caractères vu que la key se répète 20x.<br/>
 Donc chaque block de 4 octets a la même propriété xor.<br/>
