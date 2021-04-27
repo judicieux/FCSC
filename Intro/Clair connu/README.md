@@ -1,6 +1,6 @@
 # Clair connu
-Pour cette première WU je vous présente ce challenge, ma foi assez simple mais compliqué sur les bords.
-On nous donne un fichier output.txt et un script Python.
+Pour cette première WU je vous présente ce challenge, ma foi assez simple mais compliqué sur les bords.<br/>
+On nous donne un fichier output.txt et un script Python.<br/>
 ## Apperçu script
 ```py
 import os
@@ -13,9 +13,10 @@ key = os.urandom(4) * 20
 c = strxor(FLAG, key[:len(FLAG)])
 print(c.hex())
 ```
-On sait donc que la key fait 4 caractères * 20.
-En réalité ça veut dire que le blocksize de la key équivaut à 4 caractères vu qu'ils sont répétés 20x d'affilé.
-Connaissant le format des flags FCSC. On a déjà notre known plaintext, notamment "FCSC".
+Le fichier flag.txt a été importé avec comme file IO rb (read binary).<br/>
+On sait que la key fait 4 caractères * 20. La fonction urandom(4) return 4 bytes (octets) en format Little-endian.<br/>
+En réalité ça veut dire que le blocksize de la key équivaut à 4 caractères vu que la séquence est répétée 20x d'affilé.<br/>
+Connaissant le format des flags FCSC. On a déjà notre known plaintext, notamment "FCSC".<br/>
 ## Apperçu output
 ```
 d91b7023e46b4602f93a1202a7601304a7681103fd611502fa684102ad6d1506ab6a1059fc6a1459a8691051af3b4706fb691b54ad681b53f93a4651a93a1001ad3c4006a825
