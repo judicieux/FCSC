@@ -25,7 +25,7 @@ d91b7023e46b4602f93a1202a7601304a7681103fd611502fa684102ad6d1506ab6a1059fc6a1459
 Je présume que c'est le flag xoré + encodé en hexadécimal.<br/>
 ## Solutions
 J'ai résolu ce challenge grâce à Cyberchef mais je trouvais la manière de faire bien trop simple, donc j'ai décidé de compléter le challenge en faisant un script en Python afin de m'entraîner.
-## Solution Script
+### Solution Script
 ```py
 # g3zb0yy
 import os
@@ -46,6 +46,12 @@ key = bytes.fromhex(key)*20
 __next = strxor(flag, key[:len(flag)])
 print(__next)
 ```
+#### Vulgarisation du script
+Je commence tout d'abord par assigner le plaintext sans oublier le b'' pour désigner les bytes, car strxor() ne peut pas xor une séquence de caractères Unicode (Latin-1, UCS-2 or UCS-4) tout en répétant x20 pour correspondre à la taille du flag chiffré.<br/>
+J'ouvre l'output.txt en read-only, je décode le flag hex to bytes.<br/>
+Je xor "flag" avec "key" en choisissant la taille de "flag".<br/>
+Je slice les 4 premiers bytes (octets), ce qui nous donne la vraie key de chiffrement.<br/>
+Je procède de la même manière et j'obtiens le flag.<br/>
 ### Solution Cyberchef
 Je commence par un xor basique en me munissant des éléments que j'ai.<br/>
 Tout d'abord je fous un Fromhex au niveau du flag encodé.<br/><br/>
