@@ -75,7 +75,7 @@ g3zb0yy@FCSC#~/Bureau $ strings disque.img | grep "FCSC"
 ```
 Aucun résultat<br/>
 En cherchant un peu, une fonction permet de rassembler les strings Unicode.<br/>
-D'où le "Rituel du boutisme", on assemble toutes les strings unicode du poids faible au poids lourd.<br/>
+D'où le "Rituel du boutisme", on assemble toutes les strings unicode du poids lourd au poids faible.<br/>
 ```
 g3zb0yy@FCSC#~/Bureau $ strings -td -el disque.img | grep "FCSC"
 8656899 FCSC{6a8024a83d9ec2d1a9c36c51d0408f15836a043ae0431626987ce2b8960a5937}
