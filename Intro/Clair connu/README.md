@@ -57,7 +57,7 @@ Je commence par un xor basique en me munissant des éléments que j'ai.<br/>
 Tout d'abord je fous un Fromhex au niveau du flag encodé.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/836528652434800700/H1x75DD9A3kAAAAAElFTkSuQmCC.png?width=1308&height=613"/><br/><br/>
 Je le xor avec la key FCSC encodé en UTF8.<br/>
-Ensuite je pose un To hex et je chope les 4 premiers octets étant donné que la known plaintext fait 4 caractères de long.<br/><br/>
+Ensuite je pose un To hex et je chope les 4 premiers octets étant donné que le known plaintext fait 4 caractères de long.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/836529336290246656/unknown.png?width=1297&height=613"/><br/><br/>
 Je remplace la key "FCSC" par les 4 octets et je l'encode en hexadécimal.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/836529573519818782/unknown.png?width=1344&height=613"/></br><br/>
@@ -67,3 +67,4 @@ Quand je faisais le chall je pensais que la key faisait 80 caractères. D'où le
 En effet, la key fait 80 caractères, mais ce sont juste 4 octets répétés 20x.<br/>
 Le block size de la key est de 4 caractères vu que la key se répète 20x.<br/>
 Donc chaque block de 4 octets a la même propriété xor.<br/>
+Malgré la facilité du challenge, j'ai compris que lire ne suffisait pas tout le temps et qu'il faut pratiquer le code pour vraiment le comprendre!
