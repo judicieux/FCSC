@@ -44,7 +44,7 @@ g3zb0yy@FCSC#~/Bureau $ sudo mknod -m640 /dev/loop30 b 7 8
 ``-m640`` définit la permission du device.<br/>
 ``/dev/loop30`` définit le nom du device.<br/>
 ``b`` pour la création du special block device.<br/>
-``7 8`` le nombre 7 & 8 définissent le MAJOR & MINOR.<br/>
+``7 8`` le nombre 7 & 8 définissent le MAJOR & MINOR.<br/><br/>
 Je regarde si la loop a bien été créée.<br/>
 ```
 g3zb0yy@FCSC#~/Bureau $ ls -l /dev/loop30
