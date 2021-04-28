@@ -42,7 +42,7 @@ Toutes les loop sont utilisés, je crée donc une nouvelle lib avec mknod.<br/>
 g3zb0yy@FCSC#~/Bureau $ sudo mknod -m640 /dev/loop30 b 7 8
 
 ```
-``-m640`` définit la permission du device.
-``/dev/loop30`` définit le nom du device.
-``b`` pour la création du special block device.
-``7 8`` le nombre 7 & 8 définissent le MAJOR & MINOR
+``-m640`` définit la permission du device.<br/>
+``/dev/loop30`` définit le nom du device.<br/>
+``b`` pour la création du special block device.<br/>
+``7 8`` le nombre 7 & 8 définissent le MAJOR & MINOR<br/>
