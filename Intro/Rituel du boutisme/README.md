@@ -6,6 +6,6 @@ Quand certains ordinateurs enregistrent un entier sur 32 bits en mémoire, par e
 ## Solution
 Quand on fait un file disque.img on obtient ceci:<br/>
 ```
-g3zb0yy@FCSC  ~/Bureau  file disque.img 
+g3zb0yy@FCSC#~/Bureau $ file disque.img 
 disque.img: Linux rev 1.0 ext4 filesystem data, UUID=b10781e9-d553-4053-bb93-064cdc03ed6b (extents) (64bit) (large files) (huge files)
 ```
