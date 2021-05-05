@@ -1,6 +1,6 @@
 # Clair connu
 Pour cette première WU je vous présente ce challenge introduction, ma foi assez simple.<br/>
-On nous donne un fichier output.txt et un script Python, j'en déduis que ce dernier sert à chiffrer le message contenu dans l'output.txt.<br/>
+On nous donne un fichier output.txt et un script Python, j'en déduis que ce dernier sert à chiffrer le message contenu dans output.txt.<br/>
 ## Apperçu script
 ```py
 import os
