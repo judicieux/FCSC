@@ -49,13 +49,12 @@ if request.headers.get('X-API-KEY') == 'b99cc420eb25205168e83190bae48a12'
 On doit trouver un moyen d'utiliser des headers dans l'URL.<br/>
 A ce moment j'ai immédiatement su qu'il s'agissait d'une faille de type PHP Request Smuggling.<br/>
 Brêve explication de cette faille.<br/>
-Il faut savoir que dans ce genre de situations, il y a 3 acteurs.<br/>
+Il faut savoir que dans ce genre de situations, il y a 3 acteurs.<br/><br/>
 • L'attaquant<br/>
 • Le proxy/firewall<br/>
-• Le serveur web<br/>
-Cette faille à beaucoup de variantes, mais principalement elle fonctionne de cette manière.<br/>
-• L'attaquant se connecte au proxy, il envoie ABC.<br/>
-• Le proxy l'interprète comme AB, C, et le rédirige vers le serveur.<br/>
-• Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC).<br/>
-• Proxy caches r(A) pour AB, r(BC) pour C.
-<br/>
+• Le serveur web<br/><br/>
+Cette faille à beaucoup de variantes, mais principalement elle surgit de cette manière.<br/><br/>
+• L'attaquant se connecte au proxy, il envoie ABC<br/>
+• Le proxy l'interprète comme AB, C, et le rédirige vers le serveur<br/>
+• Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)<br/>
+• Proxy caches r(A) pour AB, r(BC) pour C<br/>
