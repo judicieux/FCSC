@@ -41,3 +41,8 @@ Good, on est sur la bonne voie.<br/>
 Je me rends à la path ```/api/secret``` et la requête passe bien localement.<br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839959391415697428/unknown.png?width=1440&height=462"/><br/><br/>
 On passe donc à la deuxième condition.<br/>
+```py
+if request.headers.get('X-API-KEY') == 'b99cc420eb25205168e83190bae48a12'
+```
+On doit trouver un moyen pour push des headers directement dans l'URL.<br/>
+A ce moment j'ai immédiatement su qu'il s'agissait d'une faille de type PHP Request Smuggling.<br/>
