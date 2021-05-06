@@ -48,12 +48,11 @@ if request.headers.get('X-API-KEY') == 'b99cc420eb25205168e83190bae48a12'
 ```
 On doit trouver un moyen d'utiliser des headers dans l'URL.<br/>
 A ce moment j'ai immédiatement su qu'il s'agissait d'une faille de type PHP Request Smuggling.<br/>
-Brêve explication de cette faille.<br/>
 Il faut savoir que dans ce genre de situations, il y a 3 acteurs.<br/><br/>
 **•** L'attaquant<br/>
 **•** Le proxy/firewall<br/>
-**•** Le serveur web<br/><br/>
-Cette faille à beaucoup de variantes, mais principalement elle surgit de cette manière.<br/><br/>
+**•** Le serveur web<br/>
+Cette faille à beaucoup de variantes, mais principalement elle surgit de cette manière.<br/>
 **•** L'attaquant se connecte au proxy, il envoie ABC<br/>
 **•** Le proxy l'interprète comme AB, C, et le rédirige vers le serveur<br/>
 **•** Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)<br/>
@@ -68,9 +67,9 @@ Message: Bad request syntax ('GET /api/secret HTTP/1.1 HTTP/1.1').
 
 Error code explanation: HTTPStatus.BAD_REQUEST - Bad request syntax or unsupported method.
 ```
-On constate que le ```HTTP/1.1``` a bien été ajouté dans le corps de la requête.<br/>
-Ma première idée consistait à retaper le corps de la requête directement dans l'URL en faisant attention aux sauts de ligne.<br/>
-Je tente de push le header X-API-KEY.<br/>
+Je constate que le ```HTTP/1.1``` a bien été ajouté dans le corps de la requête.<br/>
+Ma première idée consistait à retaper le corps de la requête directement dans l'URL en faisant attention aux sauts de ligne (line feed).<br/>
+J'ai donc tenté de push le header X-API-KEY en ajoutant le ```%0a```.<br/>
 ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337/api/secret+HTTP/1.1%0aX-API-KEY:b99cc420eb25205168e83190bae48a12```<br/>
 Aucun résultat, je suppose qu'il y a un header ```Content-Length``` initialisé à 0 qui bloque la requête.<br/>
 Je calcule la taille de la clé X-API-KEY.<br/>
