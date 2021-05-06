@@ -1,4 +1,5 @@
 # Rituel du boutisme
+<img src="https://media.discordapp.net/attachments/768928242467340328/839970838635347979/unknown.png"/><br/>
 Ce challenge était sûrement un des plus simples.<br/>
 ## Explication
 Avant-tout, une brève explication du concept "Rituel du boutisme".<br/>
