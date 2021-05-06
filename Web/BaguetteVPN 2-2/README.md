@@ -56,10 +56,10 @@ Cette faille à beaucoup de variantes, mais principalement elle surgit de cette 
 **•** L'attaquant se connecte au proxy, il envoie ABC<br/>
 **•** Le proxy l'interprète comme AB, C, et le rédirige vers le serveur<br/>
 **•** Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)<br/>
-**•** Proxy caches r(A) pour AB, r(BC) pour C<br/><br/>
+**•** Proxy caches r(A) pour AB, r(BC) pour C<br/>
 La première chose que je fais c'est ajouter ```HTTP/1.1``` à l'URL.<br/>
 J'obtiens une erreur de parsing plutôt intéressante.<br/>
-```
+```PHP
 Error response
 Error code: 400
 
