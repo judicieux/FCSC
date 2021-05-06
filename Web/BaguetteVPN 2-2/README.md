@@ -1,4 +1,5 @@
 # BaguetteVPN 2/2
+<img src="https://user-images.githubusercontent.com/74382279/117364841-b2b29780-aebe-11eb-9e7f-52f116bab774.png"/>
 On se retrouve pour la partie la plus compliquée du challenge.<br/>
 ## Résolution
 Pour commencer, brêve analyse du fichier ```./baguettevpn_server_app_v0.py```.<br/>
@@ -53,7 +54,7 @@ Il faut savoir que dans ce genre de situations, il y a 3 acteurs.<br/>
 **• L'attaquant**<br/>
 **• Le proxy/firewall**<br/>
 **• Le serveur web**<br/>
-Cette faille à beaucoup de variantes, mais principalement elle surgit de cette manière.<br/>
+Cette faille a beaucoup de variantes, mais principalement elle surgit de cette manière.<br/>
 **• L'attaquant se connecte au proxy, il envoie ABC**<br/>
 **• Le proxy l'interprète comme AB, C, et le rédirige vers le serveur**<br/>
 **• Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)**<br/>
