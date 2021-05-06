@@ -13,10 +13,10 @@ En regardant le code source on voit tout en bas une citation.<br/>
     - VPN
 -->
 ```
-En se rendant dans la path /api/debug on voit le debugging du Flask.<br/>
+En se rendant dans la path ```/api/debug``` on voit le debugging du Flask.<br/>
 Au vu du résultat, je me dis qu'il y a forcément un call d'un fichier interne.<br/>
 Je match ```__file__``` et je vois que le fichier ```./baguettevpn_server_app_v0.py``` a été load.<br/>
-Je me rends dans http://challenges2.france-cybersecurity-challenge.fr:5002/baguettevpn_server_app_v0.py<br/>
+Je me rends dans http://challenges2.france-cybersecurity-challenge.fr:5002/baguettevpn_server_app_v0.py <br/>
 Cool, on voit le flag.<br/>
 ```
 # /usr/bin/env python3
