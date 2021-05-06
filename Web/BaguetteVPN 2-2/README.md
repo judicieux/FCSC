@@ -15,6 +15,7 @@ def admin():
 Cependant, on est confronté face à plusieurs conditions.<br/>
 On doit trouver un moyen de requêter à travers le serveur, on s'attend donc à exploiter une faille de type SSRF.<br/>
 On s'attaquera à la deuxième condition plus tard.<br/>
+### SSRF
 En fouillant le site, j'apperçois un point d'injection pottentiellement vulnérable à une SSRF.<br/>
 Le paramètre ```/api/image?fn=``` permet de read des fichiers internes.<br/>
 Je décide donc d'exploiter ce paramètre, en me munissant de ce cheatsheet plutôt complet: <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery">Link</a>.<br/>
@@ -41,6 +42,7 @@ Good, on est sur la bonne voie.<br/>
 Je me rends à la path ```/api/secret``` et la requête passe bien localement.<br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839959391415697428/unknown.png?width=1440&height=462"/><br/><br/>
 On passe donc à la deuxième condition.<br/>
+### HTTP Request Smuggling
 ```py
 if request.headers.get('X-API-KEY') == 'b99cc420eb25205168e83190bae48a12'
 ```
