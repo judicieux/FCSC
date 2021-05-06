@@ -22,7 +22,8 @@ Je décide donc d'exploiter ce paramètre, en me munissant de ce cheatsheet plut
 En premier temps j'essaye  ```/api/image?fn=127.0.0.1```.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839960727799595079/unknown.png?width=1440&height=323"/><br/>
 Malheureusement la requête ne passe pas, j'ajoute donc un ```@``` pour bypass les weak parsers.<br/>
-Toujours rien, en regardant l'énoncé du challenge. Je vois qu'une énumération des ports inférieurs à 2000 est autorisée.<br/>
+Toujours rien.<br/>
+En lisant l'énoncé du challenge je vois qu'une énumération des ports inférieurs à 2000 est autorisée.<br/>
 Je fais donc la même chose en gardant la même injection ```/api/image?fn=@127.0.0.1:[port]``` et en énumérant les ports.<br/>
 Pour ce faire, j'ai fait un script afin d'automatiser tout ça.<br/>
 ```py
@@ -39,9 +40,9 @@ Après quelques minutes je vois que le port ```1337``` a été match.<br/>
 Je me rends donc à ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337```.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839958634514612284/unknown.png?width=1440&height=490"/><br/><br/>
 Good, on est sur la bonne voie.<br/>
-Je me rends à la path ```/api/secret``` et la requête passe bien localement.<br/><br/>
+Je me rends à la path ```/api/secret``` et je vois que requête passe bien localement.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839959391415697428/unknown.png?width=1440&height=462"/><br/><br/>
-On passe donc à la deuxième condition.<br/>
+Première condition validée, on passe donc à la deuxième condition.<br/>
 ## HTTP Request Smuggling
 ```py
 if request.headers.get('X-API-KEY') == 'b99cc420eb25205168e83190bae48a12'
@@ -49,14 +50,14 @@ if request.headers.get('X-API-KEY') == 'b99cc420eb25205168e83190bae48a12'
 On doit trouver un moyen d'utiliser des headers dans l'URL.<br/>
 A ce moment j'ai immédiatement su qu'il s'agissait d'une faille de type PHP Request Smuggling.<br/>
 Il faut savoir que dans ce genre de situations, il y a 3 acteurs.<br/>
-**•** L'attaquant<br/>
-**•** Le proxy/firewall<br/>
-**•** Le serveur web<br/>
+**• L'attaquant**<br/>
+**• Le proxy/firewall**<br/>
+**• Le serveur web**<br/>
 Cette faille à beaucoup de variantes, mais principalement elle surgit de cette manière.<br/>
-**•** L'attaquant se connecte au proxy, il envoie ABC<br/>
-**•** Le proxy l'interprète comme AB, C, et le rédirige vers le serveur<br/>
-**•** Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)<br/>
-**•** Proxy caches r(A) pour AB, r(BC) pour C<br/>
+**• L'attaquant se connecte au proxy, il envoie ABC**<br/>
+**• Le proxy l'interprète comme AB, C, et le rédirige vers le serveur**<br/>
+**• Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)**<br/>
+**• Proxy caches r(A) pour AB, r(BC) pour C**<br/>
 La première chose que je fais c'est ajouter ```HTTP/1.1``` à l'URL.<br/>
 J'obtiens une erreur de parsing plutôt intéressante.<br/>
 ```PHP
