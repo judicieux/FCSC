@@ -39,7 +39,7 @@ Après quelques minutes je vois que le port ```1337``` a été match.<br/>
 Je me rends donc à ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337```.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839958634514612284/unknown.png?width=1440&height=490"/><br/><br/>
 Good, on est sur la bonne voie.<br/>
-Je me rends à la path ```/api/secret``` et la requête passe bien localement.<br/>
+Je me rends à la path ```/api/secret``` et la requête passe bien localement.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839959391415697428/unknown.png?width=1440&height=462"/><br/><br/>
 On passe donc à la deuxième condition.<br/>
 ## HTTP Request Smuggling
@@ -57,4 +57,19 @@ Cette faille à beaucoup de variantes, mais principalement elle surgit de cette 
 • L'attaquant se connecte au proxy, il envoie ABC<br/>
 • Le proxy l'interprète comme AB, C, et le rédirige vers le serveur<br/>
 • Le serveur web l'interprète comme A, BC, et répond avec r(A), r(BC)<br/>
-• Proxy caches r(A) pour AB, r(BC) pour C<br/>
+• Proxy caches r(A) pour AB, r(BC) pour C<br/><br/>
+### Interprétation globale
+
+```
+GET /api/secret HTTP/1.1
+...
+Content-Length: 0
+```
+Web Server (first CL)
+1. /api/secret (0 bytes)
+2. /poison.html (+headers)
+```
+GET /poison.html HTTP/1.1
+Host: www.example.com
+Something: GET /target.html HTTP/1.1
+```
