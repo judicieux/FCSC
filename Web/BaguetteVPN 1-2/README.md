@@ -3,7 +3,7 @@ Je ne comptais pas faire une write-up sur ce challenge mais je pense que c'est m
 ## Résolution
 On a à notre disposition un site: http://challenges2.france-cybersecurity-challenge.fr:5002<br/>
 En regardant le code source on voit tout en bas une citation.<br/>
-```
+```HTML
 <!-- 
   Changelog :
     - Site web v0
@@ -18,7 +18,7 @@ Au vu du résultat, je me dis qu'il y a forcément un call d'un fichier interne.
 Je match ```__file__``` et je vois que le fichier ```./baguettevpn_server_app_v0.py``` a été load.<br/>
 Je me rends dans http://challenges2.france-cybersecurity-challenge.fr:5002/baguettevpn_server_app_v0.py <br/>
 Cool, on voit le flag.<br/>
-```
+```py
 # /usr/bin/env python3
 # -*- coding:utf-8 -*-
 # -*- requirements:requirements.txt -*-
