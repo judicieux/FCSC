@@ -1,4 +1,5 @@
 # BaguetteVPN 1/2
+<img src="https://media.discordapp.net/attachments/768928242467340328/839969934016380968/unknown.png"/><br/>
 Je ne comptais pas faire une write-up sur ce challenge mais je pense que c'est mieux histoire de compléter le tout avec BaguetteVPN 2/2.<br/>
 ## Résolution
 On a à notre disposition un site: http://challenges2.france-cybersecurity-challenge.fr:5002<br/>
