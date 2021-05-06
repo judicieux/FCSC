@@ -19,6 +19,7 @@ En fouillant le site, j'apperçois un point d'injection pottentiellement vulnér
 Le paramètre ```/api/image?fn=``` permet de read des fichiers internes.<br/>
 Je décide donc d'exploiter ce paramètre, en me munissant de ce cheatsheet plutôt complet: <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery">Link</a>.<br/>
 En premier temps j'essaye  ```/api/image?fn=127.0.0.1```.<br/>
+<img src="https://media.discordapp.net/attachments/768928242467340328/839958239143264297/e3CMBAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgTuAuLvndQgAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIEegHxtzf.png?width=1440&height=472"/>
 Malheureusement la requête ne passe pas, j'ajoute donc un ```@``` pour bypass les weak parsers.<br/>
 Toujours rien, en regardant l'énoncé du challenge. Je vois qu'une énumération des ports inférieurs à 2000 est autorisée.<br/>
 Je fais donc la même chose en gardant la même injection ```/api/image?fn=@127.0.0.1:[port]``` et en énumérant les ports.<br/>
