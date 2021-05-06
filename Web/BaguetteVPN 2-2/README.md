@@ -33,3 +33,5 @@ if __name__ == "__main__":
 			if "Internal Server Error" not in response.text:
 				print(response.url)
 ```
+Après quelques minutes je vois que le port ```1337``` a été match.<br/>
+Je me rends donc à ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337```
