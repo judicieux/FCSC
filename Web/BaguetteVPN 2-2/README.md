@@ -36,8 +36,8 @@ if __name__ == "__main__":
 ```
 Après quelques minutes je vois que le port ```1337``` a été match.<br/>
 Je me rends donc à ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337```.<br/><br/>
-<img src="https://media.discordapp.net/attachments/768928242467340328/839958634514612284/unknown.png?width=1440&height=490"/>
+<img src="https://media.discordapp.net/attachments/768928242467340328/839958634514612284/unknown.png?width=1440&height=490"/><br/><br/>
 Good, on est sur la bonne voie.<br/>
-Je me rends donc à la path ```/api/secret``` et la requête passe bien localement.<br/>
+Je me rends à la path ```/api/secret``` et la requête passe bien localement.<br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839959391415697428/unknown.png?width=1440&height=462"/><br/><br/>
 On passe donc à la deuxième condition.<br/>
