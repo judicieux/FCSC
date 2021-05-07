@@ -72,10 +72,10 @@ Error code explanation: HTTPStatus.BAD_REQUEST - Bad request syntax or unsupport
 ```
 Je constate que le ```HTTP/1.1``` a bien été ajouté dans le corps de la requête.<br/>
 Mon idée consitait à retaper le corps de la requête directement dans l'URL, en faisant attention aux sauts de ligne (Line feed).<br/>
-J'ai donc tenté de push le header X-API-KEY en ajoutant le ```%0a``` (\n).<br/>
+J'ai donc tenté de push le header ```X-API-KEY``` en ajoutant le ```%0a``` (```\n```).<br/>
 ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337/api/secret+HTTP/1.1%0aX-API-KEY:b99cc420eb25205168e83190bae48a12```<br/>
 Aucun résultat, je suppose qu'il y a un header ```Content-Length``` initialisé à 0 qui bloque la requête.<br/>
-Je calcule la taille de la clé X-API-KEY.<br/>
+Je calcule la taille de la clé ```X-API-KEY```.<br/>
 ```py
 >>> print(len("b99cc420eb25205168e83190bae48a12"))
 32
