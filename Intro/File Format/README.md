@@ -18,6 +18,21 @@ Ce que je retiens:<br/>
 hash = SHA256(i_0 | i_1 | ... | i_n | q_0 | q_1 | ... | q_n)
 flag = FCSC{<hash>}
 ```
+Je commence à faire les tests.<br/>
+```py
+>>> f = open("challenge.iq", "rb")
+>>> print(f.read(4))
+b' \xce\xbb>'
+```
+On voit les 4 premiers octets du fichier.<br/>
+On sait que ce sont des nombres flottants.<br/>
+```py
+>>> import struct
+>>> f = open("challenge.iq", "rb")
+>>> float = f.read(4)
+>>> print(struct.unpack("f", float))
+(0.3668069839477539,)
+```
 ## Script
 ```py
 import numpy as np
