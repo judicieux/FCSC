@@ -34,7 +34,8 @@ On sait que ce sont des nombres flottants.<br/>
 (0.3668069839477539,)
 ```
 Bien, maintenant je suis sûr que ce sont des nombres flottants.<br/>
-Passons au sérieux.<br/>
+Je fais une boucle afin d'itérer à travers tous les bytes.<br/>
+J'utilise le modulo 2 pour disperser les composantes I et Q.<br/>
 ```py
 file = open("challenge.iq", "rb")
 nb_floats = 0
@@ -53,6 +54,12 @@ while True:
 		q_bytes.append(q)
 print(len(i_bytes))
 print(len(q_bytes))
+```
+Quand j'exécute le script je vois:<br/>
+```cmd
+C:\Users\emman\AppData\Local\Programs\Python\Python38>python main.py
+1024
+1024
 ```
 ## Script
 ```py
