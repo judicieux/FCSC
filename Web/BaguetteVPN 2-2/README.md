@@ -1,7 +1,7 @@
 # BaguetteVPN 2/2
 <img src="https://user-images.githubusercontent.com/74382279/117364841-b2b29780-aebe-11eb-9e7f-52f116bab774.png"/><br/>
-On se retrouve pour la partie la plus compliquée du challenge.<br/>
 ## Résolution
+C'est la partie la plus compliquée du challenge.<br/>
 Pour commencer, brêve analyse du fichier ```./baguettevpn_server_app_v0.py```.<br/>
 Cette fonction devrait nous print le flag:<br/>
 ```py
