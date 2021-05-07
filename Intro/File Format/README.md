@@ -13,7 +13,7 @@ Ce que je retiens:<br/>
 | (f32) | (f32) | (f32) | (f32) | (f32) | (f32) | ... | (f32) | (f32) |
 +-------+-------+-------+-------+-------+-------+     +-------+-------+
 ```
-- Le fichier challenge.iq contient un signal représenté sous la forme décrite plus haut. Vous devez séparer les composantes I et Q et calculer le hash SHA256 résultant:
+- Le fichier ```challenge.iq``` contient un signal représenté sous la forme décrite plus haut. Vous devez séparer les ```composantes I et Q``` et calculer le hash ```SHA256``` résultant:
 ```
 hash = SHA256(i_0 | i_1 | ... | i_n | q_0 | q_1 | ... | q_n)
 flag = FCSC{<hash>}
@@ -35,7 +35,7 @@ On sait que ce sont des nombres flottants.<br/>
 ```
 Bien, maintenant je suis sûr que ce sont des nombres flottants.<br/>
 Je fais une boucle afin d'itérer à travers tous les bytes.<br/>
-J'utilise le modulo 2 pour disperser les composantes I et Q.<br/>
+J'utilise le ```modulo 2``` pour disperser les ```composantes I et Q```.<br/>
 ```py
 file = open("challenge.iq", "rb")
 nb_floats = 0
