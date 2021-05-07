@@ -15,10 +15,10 @@ c = strxor(FLAG, key[:len(FLAG)])
 print(c.hex())
 ```
 Le fichier flag.txt a été importé [File IO: rb (read binary)].<br/>
-On sait que la key fait 4 caractères * 20. La fonction urandom(4) retourne 4 bytes (octets) randoms en format Little-endian.<br/>
-En réalité, la key ne fait pas 80 caractères. Le blocksize de la key équivaut à 4 caractères vu que la séquence est répétée 20x d'affilé.<br/>
-Connaissant le format des flags FCSC. On a déjà notre known plaintext, notamment "FCSC".<br/>
-La fonction strxor() permet de xor deux strings (bytes-like) de la même taille.
+On sait que la key fait ```4 caractères * 20```. La fonction ```urandom(4)``` retourne ```4 bytes``` (octets) randoms en format Little-endian.<br/>
+En réalité, la key ne fait pas ```80 caractères```. Le blocksize de la key équivaut à 4 caractères vu que la séquence est répétée 20x d'affilé.<br/>
+Connaissant le format des flags FCSC. On a déjà notre known plaintext, notamment "```FCSC```".<br/>
+La fonction ```strxor()``` permet de xor deux strings (```bytes-like```) de la même taille.
 ## Apperçu output
 ```
 d91b7023e46b4602f93a1202a7601304a7681103fd611502fa684102ad6d1506ab6a1059fc6a1459a8691051af3b4706fb691b54ad681b53f93a4651a93a1001ad3c4006a825
@@ -48,10 +48,10 @@ __next = strxor(flag, key[:len(flag)])
 print(__next)
 ```
 #### Vulgarisation du script
-Je commence tout d'abord par assigner le plaintext sans oublier le b'' pour désigner les bytes, car strxor() ne peut pas xor une séquence de caractères Unicode (Latin-1, UCS-2 or UCS-4) tout en répétant x20 pour correspondre à la taille du flag chiffré.<br/>
+Je commence tout d'abord par assigner le plaintext sans oublier le ```b''``` pour désigner les bytes, car strxor() ne peut pas xor une séquence de caractères Unicode (```Latin-1, UCS-2 or UCS-4```) tout en répétant ```x20``` pour correspondre à la taille du flag chiffré.<br/>
 J'ouvre l'output.txt en read-only, je décode le flag hex to bytes.<br/>
-Je xor "flag" avec "key" en choisissant la taille de "flag".<br/>
-Je slice les 4 premiers bytes (octets), ce qui nous donne la vraie key de chiffrement.<br/>
+Je xor "flag" avec "```key```" en choisissant la taille de "```flag```".<br/>
+Je slice les 4 premiers bytes (```octets```), ce qui nous donne la vraie key de chiffrement.<br/>
 Je procède de la même manière et j'obtiens le flag.<br/>
 ### Solution Cyberchef
 Je commence par un xor basique en me munissant des éléments que j'ai.<br/>
