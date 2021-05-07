@@ -93,7 +93,7 @@ for i in range(1024):
     i_frame += bytearray(i_array[i])
     q_frame += bytearray(q_array[i])
 
-concat_final = i_frame + q_frame
+concat_final = q_frame + i_frame
 final = hashlib.sha256(concat_final).hexdigest()
 print(final)
 ```
