@@ -38,6 +38,6 @@ for i in range(1024):
         frame_q += bytearray(q_array[i])
 
 concat_final = frame_q + frame_i
-ali = hashlib.sha256(concat_final).hexdigest()
-print(ali)
+final = hashlib.sha256(concat_final).hexdigest()
+print(final)
 ```
