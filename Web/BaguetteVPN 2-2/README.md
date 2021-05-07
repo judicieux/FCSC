@@ -85,3 +85,4 @@ J'ajoute le header ```Content-Length``` avec la taille 32.<br/>
 {"secret":"FCSC{6e86560231bae31b04948823e8d56fac5f1704aaeecf72b0c03bfe742d59fdfb}"}
 ```
 Done.<br/>
+La faille en question: <a href="https://bugs.php.net/bug.php?id=80043&edit=1"/>Link</a>
