@@ -1,5 +1,7 @@
 # File Format
 <img src="https://media.discordapp.net/attachments/768928242467340328/840127831895834644/unknown.png"/><br/>
+Ce challenge n'était pas très compliqué.<br/>
+## Résolution
 ```py
 import numpy as np
 import struct
