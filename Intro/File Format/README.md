@@ -84,9 +84,6 @@ while True:
 		q = iq
 		q_bytes.append(q)
 
-print(len(i_bytes))
-print(len(q_bytes))
-
 i_frame = bytearray()
 q_frame = bytearray()
 for i in range(1024):
