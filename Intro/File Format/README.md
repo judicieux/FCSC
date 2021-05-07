@@ -62,7 +62,8 @@ C:\Users\emman\AppData\Local\Programs\Python\Python38>python main.py
 1024
 ```
 Les deux bytearrays ont 1024 octets de taille.<br/>
-
+Il me reste plus qu'à assembler les deux frames dans deux bytearrays et de les concaténer.<br/>
+Pour finir on hash le résultat en SHA256.<br/>
 ## Script
 ```py
 import hashlib
