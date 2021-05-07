@@ -33,6 +33,27 @@ On sait que ce sont des nombres flottants.<br/>
 >>> print(struct.unpack("f", float))
 (0.3668069839477539,)
 ```
+Bien, maintenant je suis sûr que ce sont des nombres flottants.<br/>
+Passons au sérieux.<br/>
+```py
+file = open("challenge.iq", "rb")
+nb_floats = 0
+i_bytes = []
+q_bytes = []
+while True:
+	iq = file.read(4)
+	if not iq:
+		break
+	nb_floats += 1
+	if(nb_floats % 2) == 0:
+		i = iq
+		i_bytes.append(i)
+	else:
+		q = iq
+		q_bytes.append(q)
+print(len(i_bytes))
+print(len(q_bytes))
+```
 ## Script
 ```py
 import numpy as np
