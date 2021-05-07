@@ -57,11 +57,11 @@ print(len(q_bytes))
 ```
 Quand j'exécute le script je vois:<br/>
 ```cmd
-C:\Users\emman\AppData\Local\Programs\Python\Python38>python main.py
+C:\Users\g3zb0yy\AppData\Local\Programs\Python\Python38>python main.py
 1024
 1024
 ```
-Les deux bytearrays ont 1024 octets de taille.<br/>
+Les deux bytearrays ont ```1024``` octets de taille.<br/>
 Il me reste plus qu'à assembler les deux frames dans deux bytearrays et de les concaténer.<br/>
 Pour finir on hash le résultat en SHA256.<br/>
 ## Script
@@ -99,7 +99,7 @@ print(final)
 ```
 J'exécute le script et comme par magie.<br/>
 ```cmd
-C:\Users\emman\AppData\Local\Programs\Python\Python38>python main.py
-8613f75e44d1d4c18dab8d967b0f3613244f6f1d0b5399ccd7f80d4d6a821cd2
+C:\Users\g3zb0yy\AppData\Local\Programs\Python\Python38>python main.py
+843161934a8e53da8723047bed55e604e725160b868abb74612e243af94345d7
 ```
-Le flag est donc FCSC{8613f75e44d1d4c18dab8d967b0f3613244f6f1d0b5399ccd7f80d4d6a821cd2}
+Le flag est donc ```FCSC{8613f75e44d1d4c18dab8d967b0f3613244f6f1d0b5399ccd7f80d4d6a821cd2}```
