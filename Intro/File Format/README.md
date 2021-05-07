@@ -1,4 +1,5 @@
 # File Format
+<img src="https://media.discordapp.net/attachments/768928242467340328/840127831895834644/unknown.png"/><br/>
 ```py
 import numpy as np
 import struct
