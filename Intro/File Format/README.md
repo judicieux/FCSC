@@ -1,7 +1,18 @@
 # File Format
 <img src="https://media.discordapp.net/attachments/768928242467340328/840127831895834644/unknown.png"/><br/>
-<h3>Ce challenge n'était pas très compliqué.</h3><br/>
+Ce challenge n'était pas très compliqué. Il suffisait de comprendre l'énoncé et d'écrire un script adéquat.<br/>
 ## Résolution
+En premier temps je lis attentivement l'énoncé.<br/>
+Ce que je retiens:<br/>
+- Une succession d'échantillons, avec chaque composante I et Q de chaque échantillon représentée par un nombre flottant compris entre 0 et 1, sur 32 bits.<br/>
+- En mode petit-boutiste.<br/>
+Représentation du format:<br/>
+```
++-------+-------+-------+-------+-------+-------+     +-------+-------+
+|  i_0  |  q_0  |  i_1  |  q_1  |  i_2  |  q_2  | ... |  i_n  |  q_n  |
+| (f32) | (f32) | (f32) | (f32) | (f32) | (f32) | ... | (f32) | (f32) |
++-------+-------+-------+-------+-------+-------+     +-------+-------+
+```
 ```py
 import numpy as np
 import struct
