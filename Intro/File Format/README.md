@@ -6,13 +6,19 @@ En premier temps je lis attentivement l'énoncé.<br/>
 Ce que je retiens:<br/>
 - Une succession d'échantillons, avec chaque composante I et Q de chaque échantillon représentée par un nombre flottant compris entre 0 et 1, sur 32 bits.<br/>
 - En mode petit-boutiste.<br/>
-Représentation du format:<br/>
+- Représentation du format:<br/>
 ```
 +-------+-------+-------+-------+-------+-------+     +-------+-------+
 |  i_0  |  q_0  |  i_1  |  q_1  |  i_2  |  q_2  | ... |  i_n  |  q_n  |
 | (f32) | (f32) | (f32) | (f32) | (f32) | (f32) | ... | (f32) | (f32) |
 +-------+-------+-------+-------+-------+-------+     +-------+-------+
 ```
+- Le fichier challenge.iq contient un signal représenté sous la forme décrite plus haut. Vous devez séparer les composantes I et Q et calculer le hash SHA256 résultant:
+```
+hash = SHA256(i_0 | i_1 | ... | i_n | q_0 | q_1 | ... | q_n)
+flag = FCSC{<hash>}
+```
+## Script
 ```py
 import numpy as np
 import struct
