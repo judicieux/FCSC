@@ -61,46 +61,44 @@ C:\Users\emman\AppData\Local\Programs\Python\Python38>python main.py
 1024
 1024
 ```
+Les deux bytearrays ont 1024 octets de taille.<br/>
+
 ## Script
 ```py
-import numpy as np
-import struct
 import hashlib
 
 file = open("challenge.iq", "rb")
-nb_of_float = 0
-i_array = []
-q_array = []
+nb_floats = 0
+i_bytes = []
+q_bytes = []
 while True:
-        i_q = file.read(4)
-        if not i_q:
-                break
-        nb_of_float += 1
-        if (nb_of_float % 2) == 0:
-                i = i_q
-                i_array.append(i)
-        else:
-                q = i_q
-                q_array.append(q)
+	iq = file.read(4)
+	if not iq:
+		break
+	nb_floats += 1
+	if(nb_floats % 2) == 0:
+		i = iq
+		i_bytes.append(i)
+	else:
+		q = iq
+		q_bytes.append(q)
 
-test = len(i_array)
-test2 = len(q_array)
+print(len(i_bytes))
+print(len(q_bytes))
 
-print("Nombre de I : " + str(test))
-print("Nombre de Q : " + str(test2))
-
-'''
-for float in i_array:
-        test = struct.unpack('f', float)
-        print (test)
-'''
-frame_i = bytearray()
-frame_q = bytearray()
+i_frame = bytearray()
+q_frame = bytearray()
 for i in range(1024):
-        frame_i += bytearray(i_array[i])
-        frame_q += bytearray(q_array[i])
+    i_frame += bytearray(i_array[i])
+    q_frame += bytearray(q_array[i])
 
-concat_final = frame_q + frame_i
+concat_final = i_frame + q_frame
 final = hashlib.sha256(concat_final).hexdigest()
 print(final)
 ```
+J'exécute le script et comme par magie.<br/>
+```cmd
+C:\Users\emman\AppData\Local\Programs\Python\Python38>python main.py
+8613f75e44d1d4c18dab8d967b0f3613244f6f1d0b5399ccd7f80d4d6a821cd2
+```
+Le flag est donc FCSC{8613f75e44d1d4c18dab8d967b0f3613244f6f1d0b5399ccd7f80d4d6a821cd2}
