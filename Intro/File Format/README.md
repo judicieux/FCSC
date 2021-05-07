@@ -1,6 +1,6 @@
 # File Format
 <img src="https://media.discordapp.net/attachments/768928242467340328/840127831895834644/unknown.png"/><br/>
-Ce challenge n'était pas très compliqué.<br/>
+<h3>Ce challenge n'était pas très compliqué.</h3><br/>
 ## Résolution
 ```py
 import numpy as np
