@@ -1,7 +1,7 @@
 # File Format
 <img src="https://media.discordapp.net/attachments/768928242467340328/840127831895834644/unknown.png"/><br/>
-Ce challenge n'était pas très compliqué. Il suffisait de comprendre l'énoncé et d'écrire un script adéquat.<br/>
 ## Résolution
+Ce challenge n'était pas très compliqué. Il suffisait de comprendre l'énoncé et d'écrire un script adéquat.<br/>
 En premier temps je lis attentivement l'énoncé.<br/>
 Ce que je retiens:<br/>
 - Une succession d'échantillons, avec chaque composante I et Q de chaque échantillon représentée par un nombre flottant compris entre 0 et 1, sur 32 bits.<br/>
