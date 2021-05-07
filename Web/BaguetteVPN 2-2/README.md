@@ -23,7 +23,8 @@ Je décide donc d'exploiter ce paramètre, en me munissant de ce cheatsheet plut
 En premier temps j'essaye  ```/api/image?fn=127.0.0.1```.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839960727799595079/unknown.png?width=1440&height=323"/><br/>
 Malheureusement la requête ne passe pas, j'ajoute donc un ```@``` pour bypass les weak parsers.<br/>
-Toujours rien.<br/>
+<img src="https://media.discordapp.net/attachments/768928242467340328/840212540935110706/unknown.png?width=1440&height=335"/><br/>
+Malheureusement, toujours rien.<br/>
 En lisant l'énoncé du challenge je vois qu'une énumération des ports inférieurs à 2000 est autorisée.<br/>
 Je fais donc la même chose en gardant la même injection ```/api/image?fn=@127.0.0.1:[port]``` et en énumérant les ports.<br/>
 Pour ce faire, j'ai fait un script afin d'automatiser tout ça.<br/>
