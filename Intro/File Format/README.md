@@ -1,6 +1,5 @@
 # File Format
 ```py
-#!/usr/bin/python
 import numpy as np
 import struct
 import hashlib
