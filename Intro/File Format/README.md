@@ -61,8 +61,8 @@ C:\Users\g3zb0yy\AppData\Local\Programs\Python\Python38>python main.py
 1024
 1024
 ```
-Les deux bytearrays ont ```1024``` octets de taille.<br/>
-Il me reste plus qu'à assembler les deux frames dans deux bytearrays et de les concaténer.<br/>
+Les deux bytearrays ont une taille de ```1024``` octets.<br/>
+Il me reste plus qu'à assembler les deux frames dans lesquelles les composantes sont départagées pour les push dans deux bytearrays et finir en les concaténant.<br/>
 Pour finir on hash le résultat en ```SHA256```.<br/>
 ## Script
 ```py
@@ -99,4 +99,4 @@ J'exécute le script et comme par magie.<br/>
 C:\Users\g3zb0yy\AppData\Local\Programs\Python\Python38>python main.py
 843161934a8e53da8723047bed55e604e725160b868abb74612e243af94345d7
 ```
-Le flag est donc ```FCSC{8613f75e44d1d4c18dab8d967b0f3613244f6f1d0b5399ccd7f80d4d6a821cd2}```
+Flagged => ```FCSC{8613f75e44d1d4c18dab8d967b0f3613244f6f1d0b5399ccd7f80d4d6a821cd2}```
