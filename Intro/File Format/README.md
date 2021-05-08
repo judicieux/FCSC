@@ -18,7 +18,7 @@ Ce que je retiens:<br/>
 hash = SHA256(i_0 | i_1 | ... | i_n | q_0 | q_1 | ... | q_n)
 flag = FCSC{<hash>}
 ```
-Je commence à faire les tests.<br/>
+Je commence par faire quelques testes.<br/>
 ```py
 >>> f = open("challenge.iq", "rb")
 >>> print(f.read(4))
