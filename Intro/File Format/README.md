@@ -41,6 +41,7 @@ file = open("challenge.iq", "rb")
 nb_floats = 0
 i_bytes = []
 q_bytes = []
+
 while True:
 	iq = file.read(4)
 	if not iq:
@@ -72,6 +73,7 @@ file = open("challenge.iq", "rb")
 nb_floats = 0
 i_bytes = []
 q_bytes = []
+
 while True:
 	iq = file.read(4)
 	if not iq:
