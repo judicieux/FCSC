@@ -19,7 +19,7 @@ On s'attaquera à la deuxième condition plus tard.<br/>
 ## SSRF
 En fouillant le site, j'apperçois un point d'injection pottentiellement vulnérable à une SSRF.<br/>
 Le paramètre ```/api/image?fn=``` permet de read des fichiers internes.<br/>
-Je donc décide d'exploiter ce paramètre, en me munissant de ce cheatsheet plutôt complet: <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery">Link</a>.<br/>
+Je décide donc d'exploiter ce paramètre, en me munissant de ce cheatsheet plutôt complet: <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery">Link</a>.<br/>
 En premier temps j'essaye  ```/api/image?fn=127.0.0.1```.<br/><br/>
 <img src="https://media.discordapp.net/attachments/768928242467340328/839960727799595079/unknown.png?width=1440&height=323"/><br/>
 Malheureusement la requête ne passe pas, j'ajoute donc un ```@``` pour bypass les weak parsers.<br/><br/>
